@@ -7,9 +7,14 @@ class StartScreen extends StatelessWidget {
   final void Function() startQuiz;
 
   @override
-  Widget build(context) {
-    return Center(
-      child: Column(
+  Widget build(BuildContext context) {
+    final backgroundColor = Theme.of(context).colorScheme.background;
+    final textColor = Theme.of(context).colorScheme.onBackground;
+    
+    return Container(
+      color: backgroundColor,
+      child: Center(
+        child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
@@ -21,7 +26,7 @@ class StartScreen extends StatelessWidget {
           Text(
             'Learn Flutter the fun way!',
             style: GoogleFonts.lato(
-              color: const Color.fromARGB(255, 237, 223, 252),
+              color: textColor,
               fontSize: 24,
             ),
           ),
@@ -31,12 +36,13 @@ class StartScreen extends StatelessWidget {
               startQuiz();
             },
             style: OutlinedButton.styleFrom(
-              foregroundColor: Colors.white,
+              foregroundColor: textColor,
             ),
             icon: const Icon(Icons.arrow_right_alt),
             label: const Text('Start Quiz'),
           )
         ],
+      ),
       ),
     );
   }
