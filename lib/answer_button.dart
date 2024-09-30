@@ -12,12 +12,15 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final buttonColor = Theme.of(context).colorScheme.primary; // Use theme color
+    final textColor = Theme.of(context).colorScheme.onPrimary; // Adjust text color
+
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 30),
-        backgroundColor: const Color.fromARGB(255, 33, 1, 95),
-        foregroundColor: Colors.white,
+        backgroundColor: buttonColor,
+        foregroundColor: textColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         ),

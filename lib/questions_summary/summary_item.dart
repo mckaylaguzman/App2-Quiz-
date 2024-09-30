@@ -12,6 +12,11 @@ class SummaryItem extends StatelessWidget {
     final isCorrectAnswer =
         itemData['user_answer'] == itemData['correct_answer'];
 
+    // Fetch dynamic text color based on the theme
+    final textColor = Theme.of(context).colorScheme.onSurface;
+    // final correctAnswerColor = const Color.fromARGB(255, 181, 254, 246);
+    // final userAnswerColor = const Color.fromARGB(255, 202, 171, 252);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -27,7 +32,7 @@ class SummaryItem extends StatelessWidget {
             Text(
               itemData['question'] as String,
               style: GoogleFonts.lato(
-                color: Colors.white,
+                color: textColor,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -41,7 +46,7 @@ class SummaryItem extends StatelessWidget {
                 )),
             Text(itemData['correct_answer'] as String,
                 style: const TextStyle(
-                  color: Color.fromARGB(255, 181, 254, 246),
+                  color: Color.fromARGB(255, 0, 225, 199),
                 )),
           ],
         ))

@@ -29,8 +29,10 @@ class ResultsScreen extends StatelessWidget {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
-    final backgroundColor = Theme.of(context).colorScheme.onSurface;
+    // Fetch dynamic colors from the current theme
+    final backgroundColor = Theme.of(context).colorScheme.surface;
     final textColor = Theme.of(context).colorScheme.onSurface;
 
     final summaryData = getSummaryData();
@@ -40,7 +42,7 @@ class ResultsScreen extends StatelessWidget {
     }).length;
 
     return Container(
-      color: backgroundColor,
+      color: backgroundColor, // Use theme's background color
       width: double.infinity,
       child: Container(
         margin: const EdgeInsets.all(40),
@@ -50,7 +52,7 @@ class ResultsScreen extends StatelessWidget {
             Text(
               'Your answered $numCorrectQuestions out of $numTotalQuestions questions correctly',
               style: GoogleFonts.lato(
-                color: textColor,
+                color: textColor, // Use theme's text color
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -66,11 +68,11 @@ class ResultsScreen extends StatelessWidget {
             TextButton.icon(
               onPressed: onRestart,
               style: TextButton.styleFrom(
-                foregroundColor: textColor,
+                foregroundColor: textColor, // Use theme's text color
               ),
               icon: const Icon(Icons.refresh),
               label: const Text('Restart Quiz!'),
-            )
+            ),
           ],
         ),
       ),
